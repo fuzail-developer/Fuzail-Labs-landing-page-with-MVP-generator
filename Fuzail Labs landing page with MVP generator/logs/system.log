@@ -176,3 +176,130 @@
 2026-03-04 06:04:06,983 | INFO |  * Debugger PIN: 163-270-054
 2026-03-04 06:04:11,862 | INFO | 127.0.0.1 - - [04/Mar/2026 06:04:11] "GET / HTTP/1.1" 200 -
 2026-03-04 06:04:12,189 | INFO | 127.0.0.1 - - [04/Mar/2026 06:04:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-04 16:19:11,589 | WARNING | Applying startup migration: add project_request.phone
+2026-03-04 16:19:11,598 | WARNING | Applying startup migration: add project_request.package
+2026-03-04 16:19:11,606 | WARNING | Applying startup migration: add project_request.extra
+2026-03-04 16:19:11,706 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:19:11,707 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:19:11,710 | INFO |  * Restarting with stat
+2026-03-04 16:19:13,479 | WARNING |  * Debugger is active!
+2026-03-04 16:19:13,490 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:19:17,295 | INFO | 127.0.0.1 - - [04/Mar/2026 16:19:17] "GET / HTTP/1.1" 200 -
+2026-03-04 16:19:17,531 | INFO | 127.0.0.1 - - [04/Mar/2026 16:19:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-04 16:21:22,759 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 16:21:22,977 | INFO |  * Restarting with stat
+2026-03-04 16:21:24,742 | WARNING |  * Debugger is active!
+2026-03-04 16:21:24,746 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:21:39,830 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 16:21:40,058 | INFO |  * Restarting with stat
+2026-03-04 16:21:41,768 | WARNING |  * Debugger is active!
+2026-03-04 16:21:41,772 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:22:27,679 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:22:27,680 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:22:27,683 | INFO |  * Restarting with stat
+2026-03-04 16:22:29,225 | WARNING |  * Debugger is active!
+2026-03-04 16:22:29,229 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:22:34,890 | INFO | 127.0.0.1 - - [04/Mar/2026 16:22:34] "GET / HTTP/1.1" 200 -
+2026-03-04 16:26:27,644 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 16:26:27,929 | INFO |  * Restarting with stat
+2026-03-04 16:26:29,949 | WARNING |  * Debugger is active!
+2026-03-04 16:26:29,954 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:31:28,521 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 16:31:28,788 | INFO |  * Restarting with stat
+2026-03-04 16:31:30,489 | WARNING |  * Debugger is active!
+2026-03-04 16:31:30,495 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:32:51,638 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:32:51,639 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:32:51,640 | INFO |  * Restarting with stat
+2026-03-04 16:32:53,267 | WARNING |  * Debugger is active!
+2026-03-04 16:32:53,272 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:32:55,665 | INFO | 127.0.0.1 - - [04/Mar/2026 16:32:55] "GET / HTTP/1.1" 200 -
+2026-03-04 16:38:20,603 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 16:38:20,982 | INFO |  * Restarting with stat
+2026-03-04 16:38:23,900 | WARNING |  * Debugger is active!
+2026-03-04 16:38:23,907 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:39:13,253 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:39:13,254 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:39:13,257 | INFO |  * Restarting with stat
+2026-03-04 16:39:14,847 | WARNING |  * Debugger is active!
+2026-03-04 16:39:14,851 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:39:20,706 | INFO | 127.0.0.1 - - [04/Mar/2026 16:39:20] "GET / HTTP/1.1" 200 -
+2026-03-04 16:39:21,051 | INFO | 127.0.0.1 - - [04/Mar/2026 16:39:21] "GET /static/favicon.svg HTTP/1.1" 200 -
+2026-03-04 16:43:00,777 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:43:00,778 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:43:00,781 | INFO |  * Restarting with stat
+2026-03-04 16:43:02,440 | WARNING |  * Debugger is active!
+2026-03-04 16:43:02,444 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:43:05,057 | INFO | 127.0.0.1 - - [04/Mar/2026 16:43:05] "GET / HTTP/1.1" 200 -
+2026-03-04 16:47:00,369 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 16:47:00,370 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 16:47:00,372 | INFO |  * Restarting with stat
+2026-03-04 16:47:01,957 | WARNING |  * Debugger is active!
+2026-03-04 16:47:01,961 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 16:47:04,543 | INFO | 127.0.0.1 - - [04/Mar/2026 16:47:04] "GET / HTTP/1.1" 200 -
+2026-03-04 17:04:02,918 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 17:04:02,918 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 17:04:02,920 | INFO |  * Restarting with stat
+2026-03-04 17:04:04,465 | WARNING |  * Debugger is active!
+2026-03-04 17:04:04,470 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 17:04:08,647 | INFO | 127.0.0.1 - - [04/Mar/2026 17:04:08] "GET / HTTP/1.1" 200 -
+2026-03-04 17:58:24,286 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 17:58:24,287 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 17:58:24,290 | INFO |  * Restarting with stat
+2026-03-04 17:58:25,815 | WARNING |  * Debugger is active!
+2026-03-04 17:58:25,824 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 17:58:30,294 | INFO | 127.0.0.1 - - [04/Mar/2026 17:58:30] "GET / HTTP/1.1" 200 -
+2026-03-04 18:06:32,955 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 18:06:32,956 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 18:06:32,959 | INFO |  * Restarting with stat
+2026-03-04 18:06:34,898 | WARNING |  * Debugger is active!
+2026-03-04 18:06:34,902 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 18:06:39,621 | INFO | 127.0.0.1 - - [04/Mar/2026 18:06:39] "GET / HTTP/1.1" 200 -
+2026-03-04 18:06:44,104 | INFO | 127.0.0.1 - - [04/Mar/2026 18:06:44] "GET /order HTTP/1.1" 200 -
+2026-03-04 18:06:48,625 | INFO | 127.0.0.1 - - [04/Mar/2026 18:06:48] "GET /dashboard HTTP/1.1" 200 -
+2026-03-04 18:06:51,557 | INFO | 127.0.0.1 - - [04/Mar/2026 18:06:51] "GET /privacy HTTP/1.1" 200 -
+2026-03-04 18:06:57,101 | INFO | 127.0.0.1 - - [04/Mar/2026 18:06:57] "GET /privacy HTTP/1.1" 200 -
+2026-03-04 18:08:00,731 | INFO | 127.0.0.1 - - [04/Mar/2026 18:08:00] "GET / HTTP/1.1" 200 -
+2026-03-04 18:08:35,922 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 18:08:36,156 | INFO |  * Restarting with stat
+2026-03-04 18:08:38,037 | WARNING |  * Debugger is active!
+2026-03-04 18:08:38,042 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 18:09:19,806 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 18:09:19,806 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 18:09:19,809 | INFO |  * Restarting with stat
+2026-03-04 18:09:21,558 | WARNING |  * Debugger is active!
+2026-03-04 18:09:21,563 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 18:09:24,457 | INFO | 127.0.0.1 - - [04/Mar/2026 18:09:24] "GET / HTTP/1.1" 200 -
+2026-03-04 18:09:31,857 | INFO | 127.0.0.1 - - [04/Mar/2026 18:09:31] "GET /order HTTP/1.1" 200 -
+2026-03-04 18:10:55,868 | INFO | 127.0.0.1 - - [04/Mar/2026 18:10:55] "GET /dashboard HTTP/1.1" 200 -
+2026-03-04 18:10:58,146 | INFO | 127.0.0.1 - - [04/Mar/2026 18:10:58] "GET /privacy HTTP/1.1" 200 -
+2026-03-04 18:11:00,536 | INFO | 127.0.0.1 - - [04/Mar/2026 18:11:00] "GET /contact HTTP/1.1" 200 -
+2026-03-04 18:11:06,578 | INFO | 127.0.0.1 - - [04/Mar/2026 18:11:06] "GET /blog HTTP/1.1" 200 -
+2026-03-04 18:11:08,051 | INFO | 127.0.0.1 - - [04/Mar/2026 18:11:08] "GET /contact HTTP/1.1" 200 -
+2026-03-04 18:11:22,240 | INFO | 127.0.0.1 - - [04/Mar/2026 18:11:22] "GET /blog HTTP/1.1" 200 -
+2026-03-04 18:11:30,015 | INFO | 127.0.0.1 - - [04/Mar/2026 18:11:30] "GET / HTTP/1.1" 200 -
+2026-03-04 18:11:45,259 | INFO |  * Detected change in 'C:\\Users\\fuzai\\OneDrive\\Desktop\\genai-with-python\\agent\\Fuzail Labs landing page with MVP generator\\app.py', reloading
+2026-03-04 18:11:45,464 | INFO |  * Restarting with stat
+2026-03-04 18:11:47,426 | WARNING |  * Debugger is active!
+2026-03-04 18:11:47,432 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 18:12:44,485 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 18:12:44,486 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 18:12:44,489 | INFO |  * Restarting with stat
+2026-03-04 18:12:46,185 | WARNING |  * Debugger is active!
+2026-03-04 18:12:46,189 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 18:12:49,220 | INFO | 127.0.0.1 - - [04/Mar/2026 18:12:49] "GET / HTTP/1.1" 200 -
+2026-03-04 18:12:51,717 | INFO | 127.0.0.1 - - [04/Mar/2026 18:12:51] "GET /dashboard HTTP/1.1" 200 -
+2026-03-04 18:12:55,678 | INFO | 127.0.0.1 - - [04/Mar/2026 18:12:55] "GET /dashboard HTTP/1.1" 200 -
+2026-03-04 18:12:57,232 | INFO | 127.0.0.1 - - [04/Mar/2026 18:12:57] "GET /order HTTP/1.1" 200 -
+2026-03-04 18:13:42,529 | INFO | 127.0.0.1 - - [04/Mar/2026 18:13:42] "GET /privacy HTTP/1.1" 200 -

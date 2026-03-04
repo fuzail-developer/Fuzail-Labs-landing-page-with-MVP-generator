@@ -57,7 +57,7 @@ LANDING_PAGE_KEYWORDS = (
 ALLOWED_STATUSES = {"Pending", "Generating", "Completed", "Delivered"}
 ALLOWED_FRAMEWORKS = {"Flask", "FastAPI", "Django"}
 ALLOWED_DATABASES = {"SQLite", "PostgreSQL", "MySQL", "Supabase"}
-ALLOWED_PLANS = {"Basic MVP", "Startup MVP", "Full SaaS"}
+ALLOWED_PLANS = {"Basic MVP", "Startup MVP", "Full SaaS", "Not sure yet"}
 
 
 def _normalize_database_url(raw_url: str) -> str:
@@ -109,17 +109,39 @@ app.config["MAIL_USE_TLS"] = os.getenv("MAIL_USE_TLS", "true").lower() == "true"
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME", "")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD", "")
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER", app.config["MAIL_USERNAME"])
+app.config["ORDER_ALERT_EMAIL"] = os.getenv("ORDER_ALERT_EMAIL", "fuzailshaik42@gmail.com").strip()
 app.config["FOUNDER_NAME"] = os.getenv("FOUNDER_NAME", "Fuzail")
 app.config["FOUNDER_LINKEDIN_URL"] = os.getenv("FOUNDER_LINKEDIN_URL", "").strip()
 app.config["FOUNDER_GITHUB_URL"] = os.getenv("FOUNDER_GITHUB_URL", "https://github.com/fuzail-developer").strip()
 app.config["BUILT_MVPS_COUNT"] = os.getenv("BUILT_MVPS_COUNT", "").strip()
-app.config["DEMO_1_TITLE"] = os.getenv("DEMO_1_TITLE", "Demo Project 1").strip()
-app.config["DEMO_1_URL"] = os.getenv("DEMO_1_URL", "").strip()
-app.config["DEMO_1_DESC"] = os.getenv("DEMO_1_DESC", "Add your real demo link in .env").strip()
-app.config["DEMO_2_TITLE"] = os.getenv("DEMO_2_TITLE", "Demo Project 2").strip()
-app.config["DEMO_2_URL"] = os.getenv("DEMO_2_URL", "").strip()
-app.config["DEMO_2_DESC"] = os.getenv("DEMO_2_DESC", "Add your real demo link in .env").strip()
+app.config["DEMO_1_TITLE"] = os.getenv("DEMO_1_TITLE", "60SecAI (Instant Life Fix Coach)").strip()
+app.config["DEMO_1_URL"] = os.getenv("DEMO_1_URL", "https://six0secai-ai-wellness-app-1.onrender.com").strip()
+app.config["DEMO_1_GITHUB_URL"] = os.getenv(
+    "DEMO_1_GITHUB_URL",
+    "https://github.com/fuzail-developer/60secai-ai-wellness-app",
+).strip()
+app.config["DEMO_1_DESC"] = os.getenv(
+    "DEMO_1_DESC",
+    "GitHub: https://github.com/fuzail-developer/60secai-ai-wellness-app",
+).strip()
+app.config["DEMO_2_TITLE"] = os.getenv("DEMO_2_TITLE", "AI CRM Flask (Full-Stack CRM)").strip()
+app.config["DEMO_2_URL"] = os.getenv("DEMO_2_URL", "https://ai-crm-flask.onrender.com").strip()
+app.config["DEMO_2_GITHUB_URL"] = os.getenv(
+    "DEMO_2_GITHUB_URL",
+    "https://github.com/fuzail-developer/ai-CRM-flask",
+).strip()
+app.config["DEMO_2_DESC"] = os.getenv(
+    "DEMO_2_DESC",
+    "GitHub: https://github.com/fuzail-developer/ai-CRM-flask",
+).strip()
 app.config["SCOPE_CALL_URL"] = os.getenv("SCOPE_CALL_URL", "").strip()
+app.config["CONTACT_EMAIL"] = os.getenv("CONTACT_EMAIL", "fuzailshaik42@gmail.com").strip()
+app.config["CONTACT_PHONE"] = os.getenv("CONTACT_PHONE", "7454099494").strip()
+app.config["CONTACT_ADDRESS"] = os.getenv(
+    "CONTACT_ADDRESS",
+    "Muzaffarnagar, Uttar Pradesh, India",
+).strip()
+app.config["LAUNCH_YEAR"] = os.getenv("LAUNCH_YEAR", "2025").strip()
 app.config["TESTIMONIAL_1_QUOTE"] = os.getenv("TESTIMONIAL_1_QUOTE", "").strip()
 app.config["TESTIMONIAL_1_NAME"] = os.getenv("TESTIMONIAL_1_NAME", "").strip()
 app.config["TESTIMONIAL_1_ROLE"] = os.getenv("TESTIMONIAL_1_ROLE", "").strip()
@@ -160,22 +182,41 @@ class ProjectRequest(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(50), nullable=True)
     idea = db.Column(db.Text, nullable=False)
     framework = db.Column(db.String(32), nullable=False)
     database = db.Column(db.String(32), nullable=False)
     plan = db.Column(db.String(32), nullable=False)
+    package = db.Column(db.String(50), nullable=True)
+    extra = db.Column(db.Text, nullable=True)
     status = db.Column(db.String(32), nullable=False, default="Pending")
     generated_folder = db.Column(db.String(255), nullable=True)
     zip_filename = db.Column(db.String(255), nullable=True)
     error_message = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    messages = db.relationship(
+        "RequestMessage",
+        backref="request",
+        lazy=True,
+        cascade="all, delete-orphan",
+        order_by="RequestMessage.created_at.asc()",
+    )
 
 
 class ContactMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+
+class RequestMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    request_id = db.Column(db.Integer, db.ForeignKey("project_request.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    sender_role = db.Column(db.String(20), nullable=False, default="customer")
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
@@ -228,11 +269,18 @@ def inject_brand_context() -> Dict[str, Any]:
         "built_mvps_count": app.config.get("BUILT_MVPS_COUNT", ""),
         "demo_1_title": app.config.get("DEMO_1_TITLE", "Demo Project 1"),
         "demo_1_url": app.config.get("DEMO_1_URL", ""),
+        "demo_1_github_url": app.config.get("DEMO_1_GITHUB_URL", ""),
         "demo_1_desc": app.config.get("DEMO_1_DESC", ""),
         "demo_2_title": app.config.get("DEMO_2_TITLE", "Demo Project 2"),
         "demo_2_url": app.config.get("DEMO_2_URL", ""),
+        "demo_2_github_url": app.config.get("DEMO_2_GITHUB_URL", ""),
         "demo_2_desc": app.config.get("DEMO_2_DESC", ""),
         "scope_call_url": app.config.get("SCOPE_CALL_URL", ""),
+        "contact_email": app.config.get("CONTACT_EMAIL", "fuzailshaik42@gmail.com"),
+        "contact_phone": app.config.get("CONTACT_PHONE", ""),
+        "contact_address": app.config.get("CONTACT_ADDRESS", ""),
+        "launch_year": app.config.get("LAUNCH_YEAR", "2025"),
+        "current_year": str(datetime.utcnow().year),
         "testimonials": testimonials,
     }
 
@@ -257,6 +305,41 @@ def _send_status_email(req: ProjectRequest, completed: bool = False) -> None:
         mail.send(msg)
     except Exception as exc:
         logger.warning("Status email failed for request %s: %s", req.id, exc)
+
+
+def _send_new_order_alert(req: ProjectRequest) -> None:
+    target = str(app.config.get("ORDER_ALERT_EMAIL", "")).strip()
+    if not target:
+        logger.info("ORDER_ALERT_EMAIL not configured. Skipping alert for request=%s", req.id)
+        return
+    if not _mail_is_configured():
+        logger.info("Mail not configured. New-order alert skipped for request=%s", req.id)
+        return
+
+    subject = f"New MVP Order #{req.id} from {req.email} - {req.plan}"
+    body = (
+        "A new MVP order has been submitted.\n\n"
+        f"Request ID: {req.id}\n"
+        f"Name: {req.name}\n"
+        f"Email: {req.email}\n"
+        f"Phone: {req.phone or '-'}\n"
+        f"Plan: {req.plan}\n"
+        f"Framework: {req.framework}\n"
+        f"Database: {req.database}\n"
+        f"Idea: {req.idea}\n"
+        f"Extra: {req.extra or '-'}\n"
+        f"Created: {req.created_at.isoformat()}\n"
+    )
+    try:
+        msg = Message(
+            subject=subject,
+            recipients=[target],
+            body=body,
+            reply_to=req.email,
+        )
+        mail.send(msg)
+    except Exception as exc:
+        logger.warning("New-order alert failed for request %s: %s", req.id, exc)
 
 
 def _ensure_admin() -> None:
@@ -357,6 +440,21 @@ def _run_startup_migrations() -> None:
         "created_at",
         "ALTER TABLE project_request ADD COLUMN created_at DATETIME",
     )
+    _add_column_if_missing(
+        "project_request",
+        "phone",
+        "ALTER TABLE project_request ADD COLUMN phone VARCHAR(50)",
+    )
+    _add_column_if_missing(
+        "project_request",
+        "package",
+        "ALTER TABLE project_request ADD COLUMN package VARCHAR(50)",
+    )
+    _add_column_if_missing(
+        "project_request",
+        "extra",
+        "ALTER TABLE project_request ADD COLUMN extra TEXT",
+    )
 
     inspector = inspect(db.engine)
     if inspector.has_table("user"):
@@ -412,6 +510,18 @@ def _run_startup_migrations() -> None:
                     "WHERE user_id IS NULL"
                 ),
                 {"uid": int(row[0])},
+            )
+            db.session.commit()
+    if inspector.has_table("project_request"):
+        req_cols = {c["name"] for c in inspector.get_columns("project_request")}
+        if "plan" in req_cols and "package" in req_cols:
+            db.session.execute(
+                text(
+                    "UPDATE project_request "
+                    "SET package = plan "
+                    "WHERE (package IS NULL OR package = '') "
+                    "AND plan IS NOT NULL AND plan <> ''"
+                )
             )
             db.session.commit()
 
@@ -603,6 +713,14 @@ SPECIAL: This is a SaaS LANDING PAGE / MARKETING WEBSITE. Requirements:
 - Modern gradient hero (CSS only, no external images needed)
 - Google Analytics placeholder in base template
 - Footer with social links
+- Visual direction must be bold and premium (not generic bootstrap look)
+- Use a cinematic dark background with gradient + subtle scanline overlay
+- Use a modern design token system with CSS variables for brand/accent/muted/border
+- Cards should use glassmorphism, soft border glow, and hover lift transitions
+- Buttons should use high-contrast gradient styles with hover glow and scale effects
+- Include smooth reveal animation for sections/cards (staggered where possible)
+- Typography should feel premium and intentional (large heading contrast + compact labels)
+- Mobile responsive layout must be polished for 360px+ devices
 
 Do NOT generate a generic app. Generate specifically for: {req.idea}
 """
@@ -891,6 +1009,13 @@ def dashboard():
     return render_template("dashboard.html", requests=rows)
 
 
+@app.route("/studio")
+@login_required
+def studio():
+    _require_admin()
+    return redirect(url_for("admin_dashboard"))
+
+
 @app.route("/order", methods=["GET", "POST"])
 @login_required
 def order():
@@ -901,15 +1026,17 @@ def order():
     if request.method == "POST":
         name = request.form.get("name", "").strip()
         email = request.form.get("email", "").strip().lower()
+        phone = request.form.get("phone", "").strip()
         idea = request.form.get("idea", "").strip()
         framework = request.form.get("framework", "").strip()
         database = request.form.get("database", "").strip()
         plan = request.form.get("plan", "").strip()
+        extra = request.form.get("extra", "").strip()
 
         if not all([name, email, idea, framework, database, plan]):
             flash("Please fill all fields.", "error")
             return render_template("order.html")
-        if len(name) > 120 or len(email) > 120 or len(idea) > 8000:
+        if len(name) > 120 or len(email) > 120 or len(phone) > 50 or len(idea) > 8000 or len(extra) > 5000:
             flash("Input is too long.", "error")
             return render_template("order.html")
         if framework not in ALLOWED_FRAMEWORKS or database not in ALLOWED_DATABASES or plan not in ALLOWED_PLANS:
@@ -920,15 +1047,19 @@ def order():
             user_id=current_user.id,
             name=name[:120],
             email=email[:120],
+            phone=phone[:50] if phone else None,
             idea=idea,
             framework=framework,
             database=database,
             plan=plan,
+            package=plan,
+            extra=extra if extra else None,
             status="Pending",
         )
         db.session.add(req)
         db.session.commit()
         logger.info("New project request created: id=%s user=%s", req.id, current_user.email)
+        _send_new_order_alert(req)
         _enqueue_generation(req.id)
         flash("Request submitted. AI is building your SaaS MVP...", "success")
         return redirect(url_for("dashboard"))
@@ -975,6 +1106,39 @@ def delete_project(req_id: int):
     return redirect(url_for("dashboard" if not current_user.is_admin else "admin_dashboard"))
 
 
+@app.route("/request/<int:req_id>/messages", methods=["GET", "POST"])
+@login_required
+def request_messages(req_id: int):
+    req = ProjectRequest.query.get_or_404(req_id)
+    if not _can_access_request(req):
+        abort(403)
+
+    if request.method == "POST":
+        text_value = request.form.get("message", "").strip()
+        if not text_value:
+            flash("Message cannot be empty.", "error")
+            return redirect(url_for("request_messages", req_id=req.id))
+        if len(text_value) > 2000:
+            flash("Message is too long.", "error")
+            return redirect(url_for("request_messages", req_id=req.id))
+
+        sender_role = "admin" if current_user.is_admin else "customer"
+        db.session.add(
+            RequestMessage(
+                request_id=req.id,
+                user_id=current_user.id,
+                sender_role=sender_role,
+                message=text_value,
+            )
+        )
+        db.session.commit()
+        flash("Message sent.", "success")
+        return redirect(url_for("request_messages", req_id=req.id))
+
+    messages = RequestMessage.query.filter_by(request_id=req.id).order_by(RequestMessage.created_at.asc()).all()
+    return render_template("request_messages.html", req=req, messages=messages)
+
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -1011,6 +1175,21 @@ def blog():
         },
     ]
     return render_template("blog.html", posts=posts)
+
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+
+@app.route("/terms")
+def terms():
+    return render_template("terms.html")
+
+
+@app.route("/refund")
+def refund():
+    return render_template("refund.html")
 
 
 @app.route("/admin")
@@ -1083,7 +1262,23 @@ def export_requests_csv():
     stream = io.StringIO()
     writer = csv.writer(stream)
     writer.writerow(
-        ["ID", "User", "Name", "Email", "Framework", "Database", "Plan", "Status", "Zip", "Created At", "Updated At"]
+        [
+            "ID",
+            "User",
+            "Name",
+            "Email",
+            "Phone",
+            "Idea",
+            "Framework",
+            "Database",
+            "Plan",
+            "Package",
+            "Extra",
+            "Status",
+            "Zip",
+            "Created At",
+            "Updated At",
+        ]
     )
     for r in rows:
         writer.writerow(
@@ -1092,9 +1287,13 @@ def export_requests_csv():
                 r.owner.email if r.owner else "",
                 r.name,
                 r.email,
+                r.phone or "",
+                r.idea,
                 r.framework,
                 r.database,
                 r.plan,
+                r.package or "",
+                r.extra or "",
                 r.status,
                 r.zip_filename or "",
                 r.created_at.isoformat(),
@@ -1128,4 +1327,3 @@ if __name__ == "__main__":
         _run_startup_migrations()
         _ensure_admin()
     app.run(debug=True, port=5000)
-

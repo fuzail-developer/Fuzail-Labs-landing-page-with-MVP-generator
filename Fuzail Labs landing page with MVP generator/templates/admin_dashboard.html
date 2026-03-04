@@ -3,7 +3,7 @@
 {% block content %}
 <section class="section">
   <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-    <h1 class="fw-bold mb-0">Admin Dashboard</h1>
+    <h1 class="fw-bold mb-0">Fuzail Lab Studio</h1>
     <div class="d-flex gap-2 flex-wrap">
       <a class="btn btn-outline-light" href="{{ url_for('export_requests_csv') }}">Export CSV</a>
       <a class="btn btn-outline-light" href="{{ url_for('admin_download_all_projects') }}">Download All</a>
@@ -16,7 +16,7 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>User</th>
+            <th>Customer Email</th>
             <th>Plan</th>
             <th>Stack</th>
             <th>Status</th>
@@ -52,6 +52,7 @@
             </td>
             <td>{{ r.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
             <td class="d-flex gap-2 flex-wrap">
+              <a class="btn btn-sm btn-outline-light" href="{{ url_for('request_messages', req_id=r.id) }}">Messages</a>
               <form method="POST" action="{{ url_for('update_request_status', req_id=r.id) }}" class="d-flex gap-2">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <select name="status" class="form-select form-select-sm">

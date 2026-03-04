@@ -1,3 +1,9 @@
-# Frontend
+# Frontend Starter
 
-Generated for build-a-modern-saas-landing-page-website-for-a-service-called-fu
+Use `nextjs-app-page.tsx` as your `app/page.tsx` in a Next.js project.
+
+Install dependency:
+
+```bash
+npm install framer-motion
+```
