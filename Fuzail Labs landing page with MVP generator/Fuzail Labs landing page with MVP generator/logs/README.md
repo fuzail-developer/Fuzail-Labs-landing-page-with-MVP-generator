@@ -1,1 +1,0 @@
-Application logs are stored here.
