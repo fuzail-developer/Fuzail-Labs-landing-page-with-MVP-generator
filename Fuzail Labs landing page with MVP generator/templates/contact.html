@@ -1,0 +1,16 @@
+﻿{% extends "base.html" %}
+{% block title %}Contact | Fuzail Labs{% endblock %}
+{% block content %}
+<section class="section">
+  <h1 class="fw-bold mb-3">Contact Us</h1>
+  <form method="POST" class="card p-4 rounded-4">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="row g-3">
+      <div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" required></div>
+      <div class="col-md-6"><label class="form-label">Email</label><input type="email" class="form-control" name="email" required></div>
+      <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" name="message" rows="5" required></textarea></div>
+    </div>
+    <button class="btn btn-brand mt-3" type="submit">Send Message</button>
+  </form>
+</section>
+{% endblock %}

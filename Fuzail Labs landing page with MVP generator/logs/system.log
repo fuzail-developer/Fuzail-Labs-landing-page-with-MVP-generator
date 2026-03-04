@@ -1,0 +1,178 @@
+2026-02-27 07:25:59,176 | WARNING | Applying startup migration: add user.name
+2026-02-27 07:25:59,213 | WARNING | Applying startup migration: add user.role
+2026-02-27 07:25:59,222 | WARNING | Applying startup migration: add project_request.user_id
+2026-02-27 07:25:59,231 | WARNING | Applying startup migration: add project_request.generated_folder
+2026-02-27 07:25:59,240 | WARNING | Applying startup migration: add project_request.zip_filename
+2026-02-27 07:25:59,249 | WARNING | Applying startup migration: add project_request.error_message
+2026-02-27 07:33:14,883 | WARNING | Applying startup migration: add user.password_hash
+2026-02-27 07:40:36,212 | INFO | Default admin user created: admin@fuzaillabs.com
+2026-02-27 07:40:36,252 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 07:40:36,252 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 07:40:36,255 | INFO |  * Restarting with stat
+2026-02-27 07:40:37,825 | WARNING |  * Debugger is active!
+2026-02-27 07:40:37,831 | INFO |  * Debugger PIN: 141-729-529
+2026-02-27 07:40:42,827 | INFO | 127.0.0.1 - - [27/Feb/2026 07:40:42] "GET / HTTP/1.1" 200 -
+2026-02-27 16:12:37,138 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 16:12:37,139 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 16:12:37,143 | INFO |  * Restarting with stat
+2026-02-27 16:12:38,707 | WARNING |  * Debugger is active!
+2026-02-27 16:12:38,713 | INFO |  * Debugger PIN: 141-729-529
+2026-02-27 16:12:42,863 | INFO | 127.0.0.1 - - [27/Feb/2026 16:12:42] "GET / HTTP/1.1" 200 -
+2026-02-27 16:12:43,283 | INFO | 127.0.0.1 - - [27/Feb/2026 16:12:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 16:14:03,402 | INFO | 127.0.0.1 - - [27/Feb/2026 16:14:03] "GET / HTTP/1.1" 200 -
+2026-02-27 16:14:03,856 | INFO | 127.0.0.1 - - [27/Feb/2026 16:14:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 16:19:11,275 | INFO | 127.0.0.1 - - [27/Feb/2026 16:19:11] "GET /order HTTP/1.1" 200 -
+2026-02-27 16:19:21,005 | INFO | 127.0.0.1 - - [27/Feb/2026 16:19:21] "GET / HTTP/1.1" 200 -
+2026-02-27 16:34:32,658 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 16:34:32,659 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 16:34:32,662 | INFO |  * Restarting with stat
+2026-02-27 16:34:34,266 | WARNING |  * Debugger is active!
+2026-02-27 16:34:34,270 | INFO |  * Debugger PIN: 141-729-529
+2026-02-27 16:34:38,269 | INFO | 127.0.0.1 - - [27/Feb/2026 16:34:38] "GET / HTTP/1.1" 200 -
+2026-02-27 16:34:38,277 | INFO | 127.0.0.1 - - [27/Feb/2026 16:34:38] "GET /order HTTP/1.1" 200 -
+2026-02-27 16:34:38,759 | INFO | 127.0.0.1 - - [27/Feb/2026 16:34:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 16:34:40,715 | INFO | 127.0.0.1 - - [27/Feb/2026 16:34:40] "GET /order HTTP/1.1" 200 -
+2026-02-27 16:36:12,203 | INFO | 127.0.0.1 - - [27/Feb/2026 16:36:12] "GET / HTTP/1.1" 200 -
+2026-02-27 16:47:24,293 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 16:47:24,293 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 16:47:24,296 | INFO |  * Restarting with stat
+2026-02-27 16:47:25,932 | WARNING |  * Debugger is active!
+2026-02-27 16:47:25,937 | INFO |  * Debugger PIN: 141-729-529
+2026-02-27 16:47:26,114 | INFO | 127.0.0.1 - - [27/Feb/2026 16:47:26] "GET / HTTP/1.1" 200 -
+2026-02-27 16:47:30,867 | INFO | 127.0.0.1 - - [27/Feb/2026 16:47:30] "GET / HTTP/1.1" 200 -
+2026-02-27 16:49:45,486 | INFO | 127.0.0.1 - - [27/Feb/2026 16:49:45] "GET /contact HTTP/1.1" 200 -
+2026-02-27 16:49:49,207 | INFO | 127.0.0.1 - - [27/Feb/2026 16:49:49] "GET /order HTTP/1.1" 200 -
+2026-02-27 18:16:11,848 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 18:16:11,849 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 18:16:11,853 | INFO |  * Restarting with stat
+2026-02-27 18:16:13,583 | WARNING |  * Debugger is active!
+2026-02-27 18:16:13,589 | INFO |  * Debugger PIN: 141-729-529
+2026-02-27 18:16:17,687 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:17] "GET / HTTP/1.1" 200 -
+2026-02-27 18:16:17,909 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 18:16:27,371 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:27] "GET /contact HTTP/1.1" 200 -
+2026-02-27 18:16:33,897 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:33] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 18:16:36,130 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:36] "GET /contact HTTP/1.1" 200 -
+2026-02-27 18:16:39,426 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:39] "GET /contact HTTP/1.1" 200 -
+2026-02-27 18:16:40,741 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:40] "GET /blog HTTP/1.1" 200 -
+2026-02-27 18:16:43,969 | INFO | 127.0.0.1 - - [27/Feb/2026 18:16:43] "GET / HTTP/1.1" 200 -
+2026-02-27 19:16:29,283 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 19:16:29,284 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 19:16:29,287 | INFO |  * Restarting with stat
+2026-02-27 19:16:30,974 | WARNING |  * Debugger is active!
+2026-02-27 19:16:31,018 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 19:16:34,502 | INFO | 127.0.0.1 - - [27/Feb/2026 19:16:34] "GET / HTTP/1.1" 200 -
+2026-02-27 19:16:34,695 | INFO | 127.0.0.1 - - [27/Feb/2026 19:16:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 22:15:00,756 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 22:15:00,756 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 22:15:00,760 | INFO |  * Restarting with stat
+2026-02-27 22:15:03,108 | WARNING |  * Debugger is active!
+2026-02-27 22:15:03,115 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 22:15:09,445 | INFO | 127.0.0.1 - - [27/Feb/2026 22:15:09] "GET / HTTP/1.1" 200 -
+2026-02-27 22:15:09,762 | INFO | 127.0.0.1 - - [27/Feb/2026 22:15:09] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 22:16:55,144 | INFO | 127.0.0.1 - - [27/Feb/2026 22:16:55] "GET /contact HTTP/1.1" 200 -
+2026-02-27 22:16:57,905 | INFO | 127.0.0.1 - - [27/Feb/2026 22:16:57] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 22:17:10,248 | INFO | 127.0.0.1 - - [27/Feb/2026 22:17:10] "GET /blog HTTP/1.1" 200 -
+2026-02-27 22:17:19,350 | INFO | 127.0.0.1 - - [27/Feb/2026 22:17:19] "GET / HTTP/1.1" 200 -
+2026-02-27 22:19:56,289 | INFO | 127.0.0.1 - - [27/Feb/2026 22:19:56] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 22:20:01,772 | INFO | 127.0.0.1 - - [27/Feb/2026 22:20:01] "GET /order HTTP/1.1" 200 -
+2026-02-27 22:58:09,262 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 22:58:09,264 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 22:58:09,267 | INFO |  * Restarting with stat
+2026-02-27 22:58:10,789 | WARNING |  * Debugger is active!
+2026-02-27 22:58:10,801 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 22:58:15,244 | INFO | 127.0.0.1 - - [27/Feb/2026 22:58:15] "GET / HTTP/1.1" 200 -
+2026-02-27 22:58:15,599 | INFO | 127.0.0.1 - - [27/Feb/2026 22:58:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-27 23:05:45,942 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 23:05:45,942 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 23:05:45,944 | INFO |  * Restarting with stat
+2026-02-27 23:05:47,435 | WARNING |  * Debugger is active!
+2026-02-27 23:05:47,439 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 23:05:50,871 | INFO | 127.0.0.1 - - [27/Feb/2026 23:05:50] "GET / HTTP/1.1" 200 -
+2026-02-27 23:06:39,128 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:39] "GET /contact HTTP/1.1" 200 -
+2026-02-27 23:06:43,613 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:43] "GET /blog HTTP/1.1" 200 -
+2026-02-27 23:06:45,531 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:45] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 23:06:46,979 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:46] "GET /contact HTTP/1.1" 200 -
+2026-02-27 23:06:48,270 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:48] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 23:06:50,305 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:50] "GET /contact HTTP/1.1" 200 -
+2026-02-27 23:06:51,629 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:51] "GET /blog HTTP/1.1" 200 -
+2026-02-27 23:06:52,902 | INFO | 127.0.0.1 - - [27/Feb/2026 23:06:52] "GET / HTTP/1.1" 200 -
+2026-02-27 23:07:00,846 | INFO | 127.0.0.1 - - [27/Feb/2026 23:07:00] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 23:07:02,944 | INFO | 127.0.0.1 - - [27/Feb/2026 23:07:02] "GET /contact HTTP/1.1" 200 -
+2026-02-27 23:07:06,019 | INFO | 127.0.0.1 - - [27/Feb/2026 23:07:06] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 23:07:09,750 | INFO | 127.0.0.1 - - [27/Feb/2026 23:07:09] "GET /order HTTP/1.1" 200 -
+2026-02-27 23:12:24,506 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 23:12:24,506 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 23:12:24,509 | INFO |  * Restarting with stat
+2026-02-27 23:12:26,105 | WARNING |  * Debugger is active!
+2026-02-27 23:12:26,108 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 23:12:30,950 | INFO | 127.0.0.1 - - [27/Feb/2026 23:12:30] "GET / HTTP/1.1" 200 -
+2026-02-27 23:12:48,064 | INFO | 127.0.0.1 - - [27/Feb/2026 23:12:48] "GET /dashboard HTTP/1.1" 200 -
+2026-02-27 23:13:50,910 | INFO | 127.0.0.1 - - [27/Feb/2026 23:13:50] "GET /order HTTP/1.1" 200 -
+2026-02-27 23:24:46,757 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-27 23:24:46,758 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-27 23:24:46,760 | INFO |  * Restarting with stat
+2026-02-27 23:24:48,271 | WARNING |  * Debugger is active!
+2026-02-27 23:24:48,275 | INFO |  * Debugger PIN: 163-270-054
+2026-02-27 23:24:52,090 | INFO | 127.0.0.1 - - [27/Feb/2026 23:24:52] "GET / HTTP/1.1" 200 -
+2026-02-28 23:46:43,102 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-28 23:46:43,103 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-28 23:46:43,106 | INFO |  * Restarting with stat
+2026-02-28 23:46:44,680 | WARNING |  * Debugger is active!
+2026-02-28 23:46:44,689 | INFO |  * Debugger PIN: 163-270-054
+2026-02-28 23:46:49,325 | INFO | 127.0.0.1 - - [28/Feb/2026 23:46:49] "GET / HTTP/1.1" 200 -
+2026-02-28 23:46:49,609 | INFO | 127.0.0.1 - - [28/Feb/2026 23:46:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-02-28 23:46:54,803 | INFO | 127.0.0.1 - - [28/Feb/2026 23:46:54] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:47:02,377 | INFO | 127.0.0.1 - - [28/Feb/2026 23:47:02] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:47:04,717 | INFO | 127.0.0.1 - - [28/Feb/2026 23:47:04] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:47:09,209 | INFO | 127.0.0.1 - - [28/Feb/2026 23:47:09] "GET /contact HTTP/1.1" 200 -
+2026-02-28 23:47:12,756 | INFO | 127.0.0.1 - - [28/Feb/2026 23:47:12] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:47:15,802 | INFO | 127.0.0.1 - - [28/Feb/2026 23:47:15] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:56:23,334 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-02-28 23:56:23,335 | INFO | [33mPress CTRL+C to quit[0m
+2026-02-28 23:56:23,338 | INFO |  * Restarting with stat
+2026-02-28 23:56:24,956 | WARNING |  * Debugger is active!
+2026-02-28 23:56:24,959 | INFO |  * Debugger PIN: 163-270-054
+2026-02-28 23:56:29,038 | INFO | 127.0.0.1 - - [28/Feb/2026 23:56:29] "GET / HTTP/1.1" 200 -
+2026-02-28 23:56:50,407 | INFO | 127.0.0.1 - - [28/Feb/2026 23:56:50] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:56:52,266 | INFO | 127.0.0.1 - - [28/Feb/2026 23:56:52] "GET /order HTTP/1.1" 200 -
+2026-02-28 23:56:54,227 | INFO | 127.0.0.1 - - [28/Feb/2026 23:56:54] "GET /dashboard HTTP/1.1" 200 -
+2026-02-28 23:57:05,939 | INFO | 127.0.0.1 - - [28/Feb/2026 23:57:05] "GET /contact HTTP/1.1" 200 -
+2026-02-28 23:57:07,921 | INFO | 127.0.0.1 - - [28/Feb/2026 23:57:07] "GET / HTTP/1.1" 200 -
+2026-03-01 00:00:31,907 | INFO | 127.0.0.1 - - [01/Mar/2026 00:00:31] "GET /order HTTP/1.1" 200 -
+2026-03-01 21:27:11,810 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-01 21:27:11,812 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-01 21:27:11,816 | INFO |  * Restarting with stat
+2026-03-01 21:27:15,133 | WARNING |  * Debugger is active!
+2026-03-01 21:27:15,140 | INFO |  * Debugger PIN: 163-270-054
+2026-03-01 21:27:20,149 | INFO | 127.0.0.1 - - [01/Mar/2026 21:27:20] "GET / HTTP/1.1" 200 -
+2026-03-01 21:27:20,638 | INFO | 127.0.0.1 - - [01/Mar/2026 21:27:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-03 06:51:57,543 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-03 06:51:57,545 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-03 06:51:57,547 | INFO |  * Restarting with stat
+2026-03-03 06:51:59,140 | WARNING |  * Debugger is active!
+2026-03-03 06:51:59,145 | INFO |  * Debugger PIN: 163-270-054
+2026-03-03 06:52:03,782 | INFO | 127.0.0.1 - - [03/Mar/2026 06:52:03] "GET / HTTP/1.1" 200 -
+2026-03-03 06:52:04,280 | INFO | 127.0.0.1 - - [03/Mar/2026 06:52:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-04 06:04:04,529 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2026-03-04 06:04:04,530 | INFO | [33mPress CTRL+C to quit[0m
+2026-03-04 06:04:04,534 | INFO |  * Restarting with stat
+2026-03-04 06:04:06,976 | WARNING |  * Debugger is active!
+2026-03-04 06:04:06,983 | INFO |  * Debugger PIN: 163-270-054
+2026-03-04 06:04:11,862 | INFO | 127.0.0.1 - - [04/Mar/2026 06:04:11] "GET / HTTP/1.1" 200 -
+2026-03-04 06:04:12,189 | INFO | 127.0.0.1 - - [04/Mar/2026 06:04:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
