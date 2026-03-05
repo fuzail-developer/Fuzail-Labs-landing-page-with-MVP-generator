@@ -1,26 +1,101 @@
-:root {
-    --primary-color: #4a90e2;
-    --secondary-color: #d9d9d9;
-    --background-color: #f5f5f5;
+﻿:root {
+  --bg: #070b1a;
+  --surface: #0e1630;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #fb923c;
+  --accent-2: #f97316;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--background-color);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #172554 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+.hero,
+.pricing,
+.features {
+  width: min(1100px, 92%);
+  margin: 0 auto;
 }
 
 .hero {
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 100px 0;
+  text-align: center;
+  padding: 72px 0 40px;
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: white;
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
 }
 
-@media (max-width: 768px) {
-    .hero {
-        padding: 50px 0;
-    }
+.hero p {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+.cta,
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.card {
+  background: rgba(14, 22, 48, 0.92);
+  border: 1px solid rgba(251, 146, 60, 0.25);
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.card.recommended {
+  border-color: rgba(251, 146, 60, 0.6);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.25);
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 6px 0 12px;
+}
+
+.features {
+  margin: 44px auto 80px;
+}
+
+.features h2 {
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.feature-grid > div {
+  background: rgba(14, 22, 48, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
 }
