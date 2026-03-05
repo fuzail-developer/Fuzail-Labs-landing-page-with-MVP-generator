@@ -692,6 +692,9 @@
               <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('feedback') }}">Feedback</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('privacy') }}">Privacy</a>
             </li>
             {% if current_user.is_authenticated %} {% if current_user.is_admin
@@ -850,4 +853,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-

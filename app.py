@@ -212,6 +212,15 @@ class ContactMessage(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 
+class FeedbackMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    rating = db.Column(db.Integer, nullable=False, default=5)
+    message = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
+
 class RequestMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     request_id = db.Column(db.Integer, db.ForeignKey("project_request.id"), nullable=False)
@@ -1168,6 +1177,48 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/feedback", methods=["GET", "POST"])
+def feedback():
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip().lower()
+        rating_raw = request.form.get("rating", "5").strip()
+        message = request.form.get("message", "").strip()
+
+        if not all([name, email, message]):
+            flash("Please fill all feedback fields.", "error")
+            return render_template("feedback.html")
+        if len(name) > 120 or len(email) > 120 or len(message) > 5000:
+            flash("Input is too long.", "error")
+            return render_template("feedback.html")
+        try:
+            rating = int(rating_raw)
+        except ValueError:
+            flash("Rating must be between 1 and 5.", "error")
+            return render_template("feedback.html")
+        if rating < 1 or rating > 5:
+            flash("Rating must be between 1 and 5.", "error")
+            return render_template("feedback.html")
+
+        # Keeps feedback feature safe even when app runs via WSGI without __main__ bootstrap.
+        inspector = inspect(db.engine)
+        if not inspector.has_table("feedback_message"):
+            db.create_all()
+
+        db.session.add(
+            FeedbackMessage(
+                name=name[:120],
+                email=email[:120],
+                rating=rating,
+                message=message,
+            )
+        )
+        db.session.commit()
+        flash("Thanks! Your feedback has been submitted.", "success")
+        return redirect(url_for("feedback"))
+    return render_template("feedback.html")
+
+
 @app.route("/blog")
 def blog():
     posts = [
@@ -1214,7 +1265,8 @@ def admin_root():
 def admin_dashboard():
     _require_admin()
     rows = ProjectRequest.query.order_by(ProjectRequest.created_at.desc()).all()
-    return render_template("admin_dashboard.html", requests=rows)
+    feedback_rows = FeedbackMessage.query.order_by(FeedbackMessage.created_at.desc()).limit(20).all()
+    return render_template("admin_dashboard.html", requests=rows, feedback_rows=feedback_rows)
 
 
 @app.route("/admin/request/<int:req_id>/status", methods=["POST"])

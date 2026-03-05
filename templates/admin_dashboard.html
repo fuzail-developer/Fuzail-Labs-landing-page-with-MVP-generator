@@ -86,4 +86,38 @@
     </div>
   </div>
 </section>
+
+<section class="section pt-0">
+  <h2 class="fw-bold mb-3">Recent Feedback</h2>
+  <div class="card p-3 rounded-4">
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Rating</th>
+            <th>Message</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in feedback_rows %}
+          <tr>
+            <td>{{ f.id }}</td>
+            <td>{{ f.name }}</td>
+            <td>{{ f.email }}</td>
+            <td>{{ f.rating }}/5</td>
+            <td>{{ f.message }}</td>
+            <td>{{ f.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="6" class="text-muted-custom">No feedback yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 {% endblock %}
