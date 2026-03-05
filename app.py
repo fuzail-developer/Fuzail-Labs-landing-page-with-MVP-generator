@@ -919,6 +919,16 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/order.html")
+def public_order_page():
+    return render_template("order_public.html")
+
+
+@app.route("/payment.html")
+def payment_page():
+    return render_template("payment.html")
+
+
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if current_user.is_authenticated:
