@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Contact | Fuzail Labs{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="row g-4">
+    <div class="col-lg-7">
+      <div class="card p-4 rounded-4 h-100">
+        <h1 class="fw-bold mb-2">Contact Us</h1>
+        <p class="text-muted-custom mb-4">
+          Share your idea or ask anything about MVP scope, pricing, and timelines.
+          We usually reply within 24 hours.
+        </p>
+
+        <form method="POST" class="row g-3">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          <div class="col-md-6">
+            <label class="form-label">Name *</label>
+            <input class="form-control" name="name" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email *</label>
+            <input type="email" class="form-control" name="email" required />
+          </div>
+          <div class="col-12">
+            <label class="form-label">Message *</label>
+            <textarea class="form-control" name="message" rows="6" required></textarea>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-brand" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <div class="card p-4 rounded-4 h-100">
+        <h4 class="fw-bold mb-3">Business Contact Details</h4>
+        <ul class="list-unstyled mb-4 text-muted-custom">
+          <li class="mb-2"><strong>Email:</strong> {{ contact_email }}</li>
+          <li class="mb-2"><strong>Phone:</strong> {{ contact_phone }}</li>
+          <li class="mb-2"><strong>Address:</strong> {{ contact_address }}</li>
+          <li class="mb-2"><strong>Support Hours:</strong> Mon-Sat, 10:00 AM to 7:00 PM IST</li>
+          <li><strong>Typical Response:</strong> within 24 hours</li>
+        </ul>
+
+        <div class="border-top pt-3 text-muted-custom">
+          Before payment, please review our
+          <a href="{{ url_for('privacy') }}">Privacy Policy</a>,
+          <a href="{{ url_for('terms') }}">Terms &amp; Conditions</a>, and
+          <a href="{{ url_for('refund') }}">Refund Policy</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
