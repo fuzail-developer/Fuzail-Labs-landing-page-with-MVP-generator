@@ -92,7 +92,7 @@ logging.basicConfig(
 logger = logging.getLogger("fuzail-labs")
 
 app = Flask(__name__, template_folder="templates")
-secret_key = os.getenv("SECRET_KEY", "").strip()
+secret_key = os.environ.get("SECRET_KEY")
 if not secret_key:
     raise RuntimeError("SECRET_KEY is required. Set it in .env or environment.")
 
