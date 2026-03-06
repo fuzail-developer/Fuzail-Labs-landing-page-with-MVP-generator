@@ -11,7 +11,7 @@
           We usually reply within 24 hours.
         </p>
 
-        <form method="POST" class="row g-3">
+        <form id="contact-form" method="POST" class="row g-3">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
           <div class="col-md-6">
             <label class="form-label">Name *</label>
@@ -53,4 +53,27 @@
     </div>
   </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("hU6n4WORSyKbhyRjN");
+  })();
+</script>
+<script>
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm("service_mp8hdnb", "template_ty7dlca", this).then(
+        function () {
+          alert("Message Sent Successfully!");
+        },
+        function () {
+          alert("Failed to send message");
+        },
+      );
+    });
+</script>
 {% endblock %}
