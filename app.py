@@ -1202,12 +1202,18 @@ def contact():
         if len(name) > 120 or len(email) > 120 or len(message) > 5000:
             flash("Input is too long.", "error")
             return render_template("contact.html")
-        row = ContactMessage(name=name[:120], email=email[:120], message=message)
-        db.session.add(row)
-        db.session.commit()
-        _send_contact_alert(row)
-        flash("Message received. We will get back to you.", "success")
-        return redirect(url_for("contact"))
+        try:
+            row = ContactMessage(name=name[:120], email=email[:120], message=message)
+            db.session.add(row)
+            db.session.commit()
+            _send_contact_alert(row)
+            flash("Message received. We will get back to you.", "success")
+            return redirect(url_for("contact"))
+        except Exception:
+            db.session.rollback()
+            logger.error("Contact submit failed: %s", traceback.format_exc())
+            flash("Temporary server issue. Please try again in a moment.", "error")
+            return render_template("contact.html")
     return render_template("contact.html")
 
 
@@ -1415,6 +1421,20 @@ def not_found(_e):
 @app.errorhandler(500)
 def server_error(_e):
     return render_template("500.html"), 500
+
+
+def _bootstrap_runtime() -> None:
+    try:
+        with app.app_context():
+            db.create_all()
+            _run_startup_migrations()
+            _ensure_admin()
+    except Exception:
+        logger.error("Runtime bootstrap failed: %s", traceback.format_exc())
+
+
+# Ensure tables/migrations/admin exist in WSGI servers too (gunicorn/render).
+_bootstrap_runtime()
 
 
 if __name__ == "__main__":
