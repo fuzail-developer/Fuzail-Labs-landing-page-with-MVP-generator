@@ -110,6 +110,7 @@ app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME", "")
 app.config["MAIL_PASSWORD"] = os.getenv("MAIL_PASSWORD", "")
 app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_DEFAULT_SENDER", app.config["MAIL_USERNAME"])
 app.config["ORDER_ALERT_EMAIL"] = os.getenv("ORDER_ALERT_EMAIL", "fuzailshaik42@gmail.com").strip()
+app.config["CONTACT_ALERT_EMAIL"] = os.getenv("CONTACT_ALERT_EMAIL", "fuzailshaik42@gmail.com").strip()
 app.config["FOUNDER_NAME"] = os.getenv("FOUNDER_NAME", "Fuzail")
 app.config["FOUNDER_LINKEDIN_URL"] = os.getenv("FOUNDER_LINKEDIN_URL", "").strip()
 app.config["FOUNDER_GITHUB_URL"] = os.getenv("FOUNDER_GITHUB_URL", "https://github.com/fuzail-developer").strip()
@@ -349,6 +350,37 @@ def _send_new_order_alert(req: ProjectRequest) -> None:
         mail.send(msg)
     except Exception as exc:
         logger.warning("New-order alert failed for request %s: %s", req.id, exc)
+
+
+def _send_contact_alert(msg_row: ContactMessage) -> None:
+    target = str(app.config.get("CONTACT_ALERT_EMAIL", "")).strip()
+    if not target:
+        logger.info("CONTACT_ALERT_EMAIL not configured. Skipping contact alert for id=%s", msg_row.id)
+        return
+    if not _mail_is_configured():
+        logger.info("Mail not configured. Contact alert skipped for id=%s", msg_row.id)
+        return
+
+    subject = f"New Contact Message #{msg_row.id} from {msg_row.email}"
+    body = (
+        "A new contact message has been submitted.\n\n"
+        f"Message ID: {msg_row.id}\n"
+        f"Name: {msg_row.name}\n"
+        f"Email: {msg_row.email}\n"
+        f"Message:\n{msg_row.message}\n"
+        f"Created: {msg_row.created_at.isoformat()}\n"
+    )
+    try:
+        mail.send(
+            Message(
+                subject=subject,
+                recipients=[target],
+                body=body,
+                reply_to=msg_row.email,
+            )
+        )
+    except Exception as exc:
+        logger.warning("Contact alert failed for message %s: %s", msg_row.id, exc)
 
 
 def _ensure_admin() -> None:
@@ -1170,8 +1202,10 @@ def contact():
         if len(name) > 120 or len(email) > 120 or len(message) > 5000:
             flash("Input is too long.", "error")
             return render_template("contact.html")
-        db.session.add(ContactMessage(name=name[:120], email=email[:120], message=message))
+        row = ContactMessage(name=name[:120], email=email[:120], message=message)
+        db.session.add(row)
         db.session.commit()
+        _send_contact_alert(row)
         flash("Message received. We will get back to you.", "success")
         return redirect(url_for("contact"))
     return render_template("contact.html")
