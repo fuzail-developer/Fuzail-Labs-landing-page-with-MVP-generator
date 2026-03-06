@@ -352,14 +352,14 @@ def _send_new_order_alert(req: ProjectRequest) -> None:
         logger.warning("New-order alert failed for request %s: %s", req.id, exc)
 
 
-def _send_contact_alert(msg_row: ContactMessage) -> None:
+def _send_contact_alert(msg_row: ContactMessage) -> bool:
     target = str(app.config.get("CONTACT_ALERT_EMAIL", "")).strip()
     if not target:
         logger.info("CONTACT_ALERT_EMAIL not configured. Skipping contact alert for id=%s", msg_row.id)
-        return
+        return False
     if not _mail_is_configured():
         logger.info("Mail not configured. Contact alert skipped for id=%s", msg_row.id)
-        return
+        return False
 
     subject = f"New Contact Message #{msg_row.id} from {msg_row.email}"
     body = (
@@ -379,8 +379,10 @@ def _send_contact_alert(msg_row: ContactMessage) -> None:
                 reply_to=msg_row.email,
             )
         )
+        return True
     except Exception as exc:
         logger.warning("Contact alert failed for message %s: %s", msg_row.id, exc)
+        return False
 
 
 def _ensure_admin() -> None:
@@ -1206,8 +1208,11 @@ def contact():
             row = ContactMessage(name=name[:120], email=email[:120], message=message)
             db.session.add(row)
             db.session.commit()
-            _send_contact_alert(row)
-            flash("Message received. We will get back to you.", "success")
+            sent = _send_contact_alert(row)
+            if sent:
+                flash("Message received. Email alert sent to founder inbox.", "success")
+            else:
+                flash("Message saved, but email alert is not configured yet.", "error")
             return redirect(url_for("contact"))
         except Exception:
             db.session.rollback()
