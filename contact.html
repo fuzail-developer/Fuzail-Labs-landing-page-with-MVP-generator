@@ -13,6 +13,7 @@
 
         <form id="contact-form" method="POST" class="row g-3">
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="col-md-6">
             <label class="form-label">Name *</label>
             <input class="form-control" name="name" required />
@@ -26,7 +27,12 @@
             <textarea class="form-control" name="message" rows="6" required></textarea>
           </div>
           <div class="col-12">
-            <button class="btn btn-brand" type="submit">Send Message</button>
+            <button id="contact-submit-btn" class="btn btn-brand" type="submit">Send Message</button>
+          </div>
+          <div class="col-12">
+            <div id="contact-success" class="alert alert-success d-none mb-0">
+              Order received. We will review your prompt and contact you within 24 hours.
+            </div>
           </div>
         </form>
       </div>
@@ -65,15 +71,26 @@
     .getElementById("contact-form")
     .addEventListener("submit", function (event) {
       event.preventDefault();
+      const honeypot = this.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value) {
+        return;
+      }
+      const submitBtn = document.getElementById("contact-submit-btn");
+      if (submitBtn) submitBtn.disabled = true;
 
       emailjs.sendForm("service_mp8hdnb", "template_ty7dlca", this).then(
-        function () {
-          alert("Message Sent Successfully!");
+        () => {
+          const successBox = document.getElementById("contact-success");
+          if (successBox) successBox.classList.remove("d-none");
+          this.reset();
+          if (submitBtn) submitBtn.disabled = false;
         },
         function () {
           alert("Failed to send message");
+          if (submitBtn) submitBtn.disabled = false;
         },
       );
     });
 </script>
 {% endblock %}
+
