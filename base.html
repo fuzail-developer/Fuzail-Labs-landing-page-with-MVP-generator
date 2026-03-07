@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% block title %}Fuzail Labs{% endblock %}</title>
+    <title>{% block title %}Nexora Labs{% endblock %}</title>
     <meta
       name="description"
-      content="Fuzail Labs builds AI-generated SaaS MVPs in 24-48 hours with modern architecture and deploy-ready code."
+      content="Nexora Labs builds AI-generated SaaS MVPs in 24-48 hours with modern architecture and deploy-ready code."
     />
     <meta
       name="keywords"
@@ -14,13 +14,23 @@
     />
     <meta
       property="og:title"
-      content="Fuzail Labs - AI Generated MVP Development in 24-48 Hours"
+      content="Nexora Labs - AI Generated MVP Development in 24-48 Hours"
     />
     <meta
       property="og:description"
       content="Build your SaaS MVP in 24-48 hours using AI."
     />
     <meta property="og:type" content="website" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GM0KJ93WZ5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-GM0KJ93WZ5");
+    </script>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -658,7 +668,7 @@
         <a
           class="navbar-brand fw-bold brand-gradient"
           href="{{ url_for('home') }}"
-          >Fuzail Labs</a
+          >Nexora Labs</a
         >
         <button
           class="navbar-toggler text-light border"
@@ -690,6 +700,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('feedback') }}">Feedback</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('privacy') }}">Privacy</a>
@@ -746,7 +759,7 @@
         class="container d-flex flex-column flex-md-row justify-content-between gap-3"
       >
         <div>
-          <div class="fw-bold">Fuzail Labs</div>
+          <div class="fw-bold">Nexora Labs</div>
           <div class="text-muted-custom">
             AI Generated MVP Development in 24-48 Hours
           </div>
@@ -754,7 +767,7 @@
           <div class="text-muted-custom">Phone: {{ contact_phone }}</div>
           <div class="text-muted-custom">Address: {{ contact_address }}</div>
           <div class="text-muted-custom mt-2">
-            &copy; {% if launch_year == current_year %}{{ current_year }}{% else %}{{ launch_year }}-{{ current_year }}{% endif %} Fuzail Labs
+            &copy; {% if launch_year == current_year %}{{ current_year }}{% else %}{{ launch_year }}-{{ current_year }}{% endif %} Nexora Labs
           </div>
         </div>
         <div class="text-muted-custom d-flex flex-column gap-2">
